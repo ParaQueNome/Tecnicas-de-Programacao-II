@@ -1,0 +1,34 @@
+"Técnicas de Programação II -> Aula 2:"
+
+
+	O que são técnicas?
+		Conjunto de procedimentos ligados à arte ou ciência;
+		Arte ou maneira de realizar um conjunto de ações;
+		Técnica é um esforço para se reduzir esforços;
+		Deixar o código mais efetivo;
+		
+		
+	Programação estruturada:
+		Base a execução sequencial de rotinas ou funções ordenadas de acordo com a maneira como se deseja que a aplicação
+		funcione;
+		Paradigma eficiente para aplicação d os princípios de lógica de prog;
+		Sequência;
+		Controle;
+		Iteração(percorrer);
+		Reutilização de código.
+		
+		Metodologia Top-Down:
+			Problema a ser resolvido -> (MA,MB) - > (AI,A2,A3), (B1,B2,B3);
+			MODULO A - > Ação 1 -> S1,S2 ou Ação 2 -> S1,S2.
+			
+		
+	Paradigma Orientado a Objetos:
+		Novas necessidades:
+			Aumento do poder de processamento dos microprocessadores;
+			Aumento da complexidade das demandas computacionais;
+			Manutenção e evolução de sistemas estruturados;
+			Aproxima a linguagem da máquina com a do ser humano;
+			Reduzir insuficiências do paradigma estruturado;
+			
+		
+	
