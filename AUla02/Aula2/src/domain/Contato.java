@@ -26,7 +26,7 @@ public class Contato {
 
     }
     public String getEmail() {
-        if(email == null){
+        if(email == null || email.isEmpty()){
             email = "Email não cadastrado";
         }
         return email;
