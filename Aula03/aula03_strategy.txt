@@ -1,0 +1,29 @@
+Técnicas de Programação II:
+	Padrões de Projetos:
+		O que são? -> São soluções comuns para problemas encontrados em projetos de software;
+		São como blue-prints que podemos utilizar para resolver um problema em nossos projetos de software ou até mesmo
+		utiliza-los como base para construção de novos projetos com base em soluções já consolidadas;
+		
+		Algoritmos x Padrão de Projetos:
+			Algoritmos: "Receita de bolo" -> Sequencias de ações
+			Padrão: Pode ver possíveis resultados e funcionalidades de uma casa em um projeto. A execução depende dos construtores. -> Focar no problema a ser resolvido;
+			
+			Design Patterns.
+		
+		O que compõe um Padrão de Projeto? 
+			São transcritos para abstrações que as pessoas possam reproduzi-los facilmente em quaisquer contextos;
+			
+			Características:
+				Descrição breve do problema em sua solução;
+				A motivação detalhada do problema e a solução que propõe;
+				Estruturas de classes que modelam  a  solução com base no contexto;
+				Exemplos de códigos em diversas linguagens;
+				
+		
+		Padrão Strategy:
+			Padrão comportamental que permite que você crie uma familia de algoritmos em classes separadas e os façam
+			substituíveis;
+			
+			Sugere que você pegue uma classe que faz algo especifico em diversas maneiras diferentes e extraia todos em classes distintas que chamamos de estratégia;
+			
+			
