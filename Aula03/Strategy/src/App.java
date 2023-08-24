@@ -1,15 +1,26 @@
+import java.util.Random;
 import java.util.Scanner;
 
+import domain.Algoritmo;
+import domain.Jokenpo;
+import domain.Papel;
 import domain.TipoAlgoritmo;
 
 public class App {
     
     public static void main(String[] args) throws Exception {
         System.out.println("Selecione o tipo");
-       Scanner s = new Scanner(System.in);
-       int tipoa = s.nextInt();
-       TipoAlgoritmo tipo = TipoAlgoritmo.getTipoAlgoritmo(tipoa);
+        Scanner s = new Scanner(System.in);
+       //TODO: Criar uma função para converter 'int' em algoritmo;
+       
+        Algoritmo papel = new Papel();
+       //TODO: Gerar jogada randomica e converter em Enum;
         
+        Integer random = new Random().nextInt(5) + 1;
+        TipoAlgoritmo computador = TipoAlgoritmo.getTipoAlgoritmo(random);
+        Jokenpo jokenpo = new Jokenpo();
+        jokenpo.setAlgoritmo(papel);
+        jokenpo.jogar(computador);
 
     }
 }
