@@ -7,6 +7,9 @@ import domain.Jokenpo;
 import domain.Papel;
 import domain.Tesoura;
 import domain.TipoAlgoritmo;
+import domain.Pedra;
+import domain.Spock;
+import domain.Lagarto;
 
 public class App {
     
@@ -41,11 +44,11 @@ public class App {
             case TESOURA:
                 return new Tesoura();
             case PEDRA:
-                return new Papel();
+                return new Pedra();
             case LAGARTO:
-                return new Papel();
+                return new Lagarto();
             case SPOCK:
-                return new Papel();
+                return new Spock();
             default:
                 throw new RuntimeException("Tipo inválido");
         }
