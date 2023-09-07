@@ -1,18 +1,4 @@
-## Getting Started
+## Aula Para aprendizado sobre métodos getters e setter
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Getter: Metodos criados para retornar informações sobre dado objeto sem que o programa tenha acesso direto ao atributo;
+### Setter: Metodos criados para atribuir/alterar informações sobre dado obejeto sem que o programa tenha acesso direto ao atributo da classe.
