@@ -4,7 +4,7 @@ import domain.Professor;
 public class App {
     public static void main(String[] args) throws Exception {
             //criação de um objseto
-            Usuario contato1 =  new Usuario("GUilherme", "109089","guiausi@gmail.com","fdgd");
+           
            
           
             /* Usuario contato2 =  new Usuario();

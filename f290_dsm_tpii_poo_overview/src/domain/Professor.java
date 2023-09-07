@@ -1,7 +1,9 @@
 package domain;
+import java.util.List;
+
 import domain.Usuario;
 
-public class Professor extends Usuario {
+public class Professor extends Usuario implements IAvaliavel{
     private Integer matricula;
     public Professor(String nome, String email, String telefone, String github, Integer matricula) {
         super(nome, email, telefone, github);
@@ -18,9 +20,11 @@ public class Professor extends Usuario {
     }
     @Override
     public void autenticar(String username, String senha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'autenticar'");
+        System.out.println("Professor autenticado com sucesso");
     }
-    
+    @Override
+    public void aplicarAvaliacao(List<Aluno> alunos){
+        alunos.forEach(a -> System.out.println("Aluno " + a));
+    }
     
 }
