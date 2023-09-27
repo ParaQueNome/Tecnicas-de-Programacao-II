@@ -8,7 +8,7 @@ public class ConexaoFactory {
     private static final String URL = "jdbc:mariadb://127.0.0.1:3306/fatec";
     private static final String USER = "root";
     private static final String PASSWORD = "";
-    private static Connection getConexao() throws SQLException{
+    public static Connection getConexao() throws SQLException{
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
