@@ -10,26 +10,35 @@ public class ContatoinMemoryRepository implements IContatoRepository{
 
     @Override
     public void salvar(Contato contato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'salvar'");
+        //TODO: validar contato
+        contatos.add(contato);
     }
 
     @Override
     public void atualizar(Contato contato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+        // TODO: validar contato
+        this.contatos.stream()
+        .filter(c -> c.getEmail().equals(contato.getEmail()))
+        .findFirst()
+        .ifPresent(c -> {
+            c.setNome(contato.getNome());
+            c.setTelefone(contato.getTelefone());
+            c.setLinkedin(contato.getLinkedin());
+        });
     }
 
     @Override
     public void excluir(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+        this.contatos
+        .stream()
+        .filter(c -> c.getId()==id)
+        .findFirst()
+        .ifPresent(c -> this.contatos.remove(c));
     }
 
     @Override
     public List<Contato> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+        return contatos;
     }
 
     @Override
