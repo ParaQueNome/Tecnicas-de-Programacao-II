@@ -40,8 +40,11 @@ public class ContatoMySqlRepository implements IContatoRepository{
 
     @Override
     public Contato buscarPorEmail(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorEmail'");
+        return this.contatos
+        .stream()
+        .filter(c -> c.getEmail().equals(email))
+        .findFirst()
+        .orElse(null);
     }
     
 }
