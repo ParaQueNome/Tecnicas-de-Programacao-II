@@ -18,20 +18,23 @@ public class ContatoMySqliDAO implements IContatoDAO {
     @Override
     public void salvar(Contato contato) {
         StringBuilder builder = new StringBuilder();
-        builder.append("INSERT INTO contatos(").append("nome, email, telefone,linkedin)").append("VALUES('");
-        
-        Statement stm = null;
-        try {
-            stm = connection.createStatement();
-        }catch(SQLException e){
-            e.printStackTrace();
-        }finally{
-            if(!Objects.isNull(stm)){
-                stm.close();
-            }
-            
+        builder.append("INSERT INTO contatos (")
+                .append("nome, email, telefone, linkedin) ")
+                .append("values('%s', '%s', '%s', '%s')");
+
+        String query = String.format(builder.toString(),
+                contato.getNome(),
+                contato.getEmail(),
+                contato.getTelefone(),
+                contato.getLinkedin());
+                
+        try (Statement stm = connection.createStatement()) {
+            stm.execute(query);
+        } catch (SQLException e) {
+           e.printStackTrace();
         }
-        }
+
+    }
          
     
     @Override
