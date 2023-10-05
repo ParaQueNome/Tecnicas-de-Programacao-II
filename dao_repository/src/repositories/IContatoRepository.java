@@ -2,12 +2,12 @@ package repositories;
 
 import java.util.List;
 
-import domain.Contato;
+import domain.ContatoVO;
 
 public interface IContatoRepository {
-    void salvar(Contato contato);
-    void atualizar(Contato contato);
+    void salvar(ContatoVO contato);
+    void atualizar(ContatoVO contato);
     void excluir(Integer id);
-    List<Contato> buscarTodos();
-    Contato buscarPorEmail(String email);
+    List<ContatoVO> buscarTodos();
+    ContatoVO buscarPorEmail(String email);
 }

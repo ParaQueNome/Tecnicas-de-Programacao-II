@@ -1,14 +1,14 @@
-package dao.factories;
+package services;
 
 import java.util.List;
 
 import domain.ContatoVO;
 
-public interface IContatoDAO {
+public interface IContatoService {
     void salvar(ContatoVO contato);
-    void atualizar(ContatoVO contato);
+    void alterar(ContatoVO contato);
+    ContatoVO buscaPorEmail(String email);
     void excluir(Integer id);
     List<ContatoVO> buscarTodos();
-    ContatoVO buscarPorEmail(String email);
 
 }

@@ -1,6 +1,6 @@
 package domain;
 
-public class Contato {
+public class ContatoVO {
     //TODO: Criar os atributos da classe Contato [id, nome, email, telefone, linkedin]
     private Integer id;
     private String nome;
@@ -40,14 +40,14 @@ public class Contato {
     }
 
     //TODO: Criar construtores
-    public Contato(int id, String nome, String email, String telefone, String linkedin) {
+    public ContatoVO(Integer id, String nome, String email, String telefone, String linkedin) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.linkedin = linkedin;
     }
-    public Contato() {
+    public ContatoVO() {
         }
     @Override
     public int hashCode() {
@@ -64,10 +64,15 @@ public class Contato {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Contato other = (Contato) obj;
+        ContatoVO other = (ContatoVO) obj;
         if (id != other.id)
             return false;
         return true;
+    }
+    @Override
+    public String toString() {
+        return "ContatoVO [id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", linkedin="
+                + linkedin + "]";
     }
     
     

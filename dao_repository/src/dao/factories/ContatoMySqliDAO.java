@@ -2,21 +2,27 @@ package dao.factories;
 
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import domain.Contato;
+import domain.ContatoVO;
 
 public class ContatoMySqliDAO implements IContatoDAO {
     // Inversao de dependencia
     private Connection connection;
+    private final Logger logger;
     public ContatoMySqliDAO(Connection connection) {
         this.connection = connection;
+        this.logger = Logger.getLogger(this.getClass().getSimpleName());
     }
 
     @Override
-    public void salvar(Contato contato) {
+    public void salvar(ContatoVO contato) {
         StringBuilder builder = new StringBuilder();
         builder.append("INSERT INTO contatos (")
                 .append("nome, email, telefone, linkedin) ")
@@ -38,7 +44,7 @@ public class ContatoMySqliDAO implements IContatoDAO {
          
     
     @Override
-    public void atualizar(Contato contato) {
+    public void atualizar(ContatoVO contato) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
     }
@@ -50,13 +56,29 @@ public class ContatoMySqliDAO implements IContatoDAO {
     }
 
     @Override
-    public List<Contato> buscarTodos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodos'");
+    public List<ContatoVO> buscarTodos() {
+        // TODO: Declarar lista de contatos:
+        List<ContatoVO> contatos = new ArrayList<>();
+        String query = "SELECT id, nome, email, telefone, linkedin FROM contatos";
+        try (Statement stm = connection.createStatement();
+        ResultSet rst = stm.executeQuery(query)) {
+            while(rst.next()){
+                ContatoVO contato = new ContatoVO(rst.getInt("id"),
+                rst.getString("nome"), 
+                rst.getString("email"), 
+                rst.getString("telefone"), 
+                rst.getString("linkedin"));
+            contatos.add(contato);
+            }
+       } catch (Exception e) {
+        // TODO: handle exception
+        logger.log(Level.SEVERE, "Falha ao consultar contatos",e);
+       }
+       return contatos;
     }
 
     @Override
-    public Contato buscarPorEmail(String email) {
+    public ContatoVO buscarPorEmail(String email) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarPorEmail'");
     }

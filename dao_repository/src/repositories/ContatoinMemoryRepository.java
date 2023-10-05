@@ -3,19 +3,19 @@ package repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Contato;
+import domain.ContatoVO;
 
 public class ContatoinMemoryRepository implements IContatoRepository{
-    private  List<Contato> contatos = new ArrayList<>();
+    private  List<ContatoVO> contatos = new ArrayList<>();
 
     @Override
-    public void salvar(Contato contato) {
+    public void salvar(ContatoVO contato) {
         //TODO: validar contato
         contatos.add(contato);
     }
 
     @Override
-    public void atualizar(Contato contato) {
+    public void atualizar(ContatoVO contato) {
         // TODO: validar contato
         this.contatos.stream()
         .filter(c -> c.getEmail().equals(contato.getEmail()))
@@ -37,12 +37,12 @@ public class ContatoinMemoryRepository implements IContatoRepository{
     }
 
     @Override
-    public List<Contato> buscarTodos() {
+    public List<ContatoVO> buscarTodos() {
         return contatos;
     }
 
     @Override
-    public Contato buscarPorEmail(String email) {
+    public ContatoVO buscarPorEmail(String email) {
         return this.contatos
         .stream()
         .filter(c -> c.getEmail().equals(email))
