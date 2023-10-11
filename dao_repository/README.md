@@ -1,18 +1,57 @@
-## Getting Started
+## Projeto Agenda Contatos
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Pasta contendo um projeto com Padrão de Projetos Em Java
 
-## Folder Structure
+<ul>
+  Padrões utilizados: <br>
 
-The workspace contains two folders by default, where:
+  <li>
+    DAO Repository
+  </li>
+  <li>
+    VO
+  </li>
+  <li>
+    Services
+  </li>
+</ul>
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Foram empregadas Interfaces para aplicar o conceito de Injeção de Dependencias e Inversão de Dependências:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+<ul>
+  <li>
+    Interface IDaoRepository:<br>
+  </li>
+  <p>Interface base para definição do tipo de banco de dados que será empregado</p><br>
+  <p>Representada a interface de pertinência dos dados do banco</p> <br>
+  <li>
+    Classe DaoRepository:
+  </li>
+  <p>Implementa os metodos da interface de pertinência</p><br>
+  <li>
+    Interface Repository:
+  </li>
+  <p>Interface responsavel pela implementação das validações dos dados antes da inserção no banco de dados</p> <br>
+  <li>
+    Interface IService:
+  </li>
+  <p>Emprega a lógica de validação dos dados, deixando independente da classe dos Bancos de Dados </p> <br>
+</ul>
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Como utilizar o projeto: 
+<ul>
 
-## Dependency Management
+  <li>
+    Para rodar o projeto, confirme se possui Java JDK instalado em sua máquina e que tenha a extensão instalada na IDE de sua preferência;
+  </li>
+  <li>
+    Abra a pasta dao-repository na IDE
+  </li>
+  <li>
+    Rode o código da classe APP e compile ele para que a aplicação funcione corretamente.
+  </li>
+</ul>
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+
+
