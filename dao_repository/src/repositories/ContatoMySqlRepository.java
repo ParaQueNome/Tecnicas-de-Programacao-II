@@ -29,7 +29,7 @@ public class ContatoMySqlRepository implements IContatoRepository{
     @Override
     public void excluir(Integer id) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+        return dao.excluir(id);
     }
 
     @Override

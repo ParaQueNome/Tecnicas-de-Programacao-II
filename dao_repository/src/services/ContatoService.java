@@ -33,16 +33,16 @@ public class ContatoService implements IContatoService {
         //TODO: Validar objeto conforme a entidade contatos
         if(Objects.isNull(contato.getId())){
             throw new RuntimeException("Não cadastrado");
+        
         }else{
             //TODO: Consultar e recuperar contato
             
-            List<ContatoVO> cont = repository.buscarTodos();
+            ContatoVO cont = repository.buscarPorEmail(contato.getEmail());
             
-            if(cont.stream().filter(c -> c.getNome().equals(contato.getNome())).findFirst().isPresent()){
-                //TODO: Alterar contato
-                repository.atualizar(contato);
-            }else{
+            if(Objects.isNull(cont)){
                 throw new RuntimeException("Não cadastrado");
+            }else{
+                repository.atualizar(contato);
             }
         }
     }
