@@ -7,11 +7,11 @@ public class ContatoVO {
     private String email;
     private String telefone;
     private String linkedin;
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     //TODO: Criar os Getters, Setters e ToString();
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getNome() {

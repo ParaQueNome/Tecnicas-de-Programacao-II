@@ -35,36 +35,47 @@ public class ContatoService implements IContatoService {
             throw new RuntimeException("Não cadastrado");
         }else{
             //TODO: Consultar e recuperar contato
-            contato.stream()
-                
-            } 
+            
+            List<ContatoVO> cont = repository.buscarTodos();
+            
+            if(cont.stream().filter(c -> c.getNome().equals(contato.getNome())).findFirst().isPresent()){
+                //TODO: Alterar contato
+                repository.atualizar(contato);
+            }else{
+                throw new RuntimeException("Não cadastrado");
+            }
         }
-        
-
-        //TODO: Alterar contato
     }
 
     @Override
     public ContatoVO buscaPorEmail(String email) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'buscaPorEmail'");
         //TODO: Validar email
 
+        if(Objects.isNull(email) || email.isEmpty()){
+            throw new RuntimeException("Email é obrigatório");
+        }
+        if(!email.contains("@")){
+           throw new RuntimeException("Email inválido"); 
+        }
         //TODO: Localizar contato e retornar contato
-    }
+        ContatoVO contato = repository.buscarPorEmail(email);
+
+        return contato;
+        }
 
     @Override
-    public void excluir(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+    public void excluir(Integer id){
         //TODO: Validar id
-
-        //TODO: Localizar contato e excluir
+        List<ContatoVO> cont = repository.buscarTodos();
+        if(cont.stream().filter(c -> c.getId().equals(id)).findFirst().isPresent()){
+            //TODO: Localizar contato e excluir
+            repository.excluir(id);
+            
+        }
     }
 
     @Override
-    public List<ContatoVO> buscarTodos() {
-        // TODO Auto-generated method stub
+    public List<ContatoVO> buscarTodos() { 
         return repository.buscarTodos();
     }
     
