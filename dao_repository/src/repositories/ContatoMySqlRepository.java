@@ -40,7 +40,7 @@ public class ContatoMySqlRepository implements IContatoRepository{
 
     @Override
     public ContatoVO buscarPorEmail(String email) {
-        
+        return dao.buscarPorEmail(email);
     }
     
 }

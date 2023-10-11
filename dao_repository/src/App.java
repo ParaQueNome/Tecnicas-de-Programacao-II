@@ -15,9 +15,9 @@ import java.sql.Connection;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
-        Connection conexao = ConexaoFactory.getConexao();
-        IContatoDAO dao = new ContatoMySqliDAO(conexao);
+       // System.out.println("Hello, World!");
+        //Connection conexao = ConexaoFactory.getConexao();
+        //IContatoDAO dao = new ContatoMySqliDAO(conexao);
         IContatoRepository repository = new ContatoinMemoryRepository();
 
         IContatoService service = new ContatoService(repository);

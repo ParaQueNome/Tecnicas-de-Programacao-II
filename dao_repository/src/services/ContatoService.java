@@ -14,7 +14,7 @@ public class ContatoService implements IContatoService {
     }
     @Override
     public void salvar(ContatoVO contato) {
-        // TODO Auto-generated method stub
+      
         if(Objects.isNull(contato.getNome()) || contato.getNome().isEmpty()){
             throw new RuntimeException("Nome é obrigatório");
         }
@@ -28,18 +28,25 @@ public class ContatoService implements IContatoService {
 
     @Override
     public void alterar(ContatoVO contato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'alterar'");
+        
+        
         //TODO: Validar objeto conforme a entidade contatos
-
-        //TODO: Consultar e recuperar contato
+        if(Objects.isNull(contato.getId())){
+            throw new RuntimeException("Não cadastrado");
+        }else{
+            //TODO: Consultar e recuperar contato
+            contato.stream()
+                
+            } 
+        }
+        
 
         //TODO: Alterar contato
     }
 
     @Override
     public ContatoVO buscaPorEmail(String email) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'buscaPorEmail'");
         //TODO: Validar email
 
