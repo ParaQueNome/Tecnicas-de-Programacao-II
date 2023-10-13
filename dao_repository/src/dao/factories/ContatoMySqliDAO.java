@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.PreparedStatement;
 
 import domain.ContatoVO;
 
@@ -45,16 +46,42 @@ public class ContatoMySqliDAO implements IContatoDAO {
     
     @Override
     public void atualizar(ContatoVO contato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+        // TODO: atualizar informações no bando de dados
+        StringBuilder builder = new StringBuilder();
+        builder.append("UPDATE contatos SET nome = '%s', email = '%s', telefone = '%s', linkedin = '%s' WHERE id = %d");
+        String query = String.format(builder.toString(),
+        contato.getNome(),
+        contato.getEmail(),
+        contato.getTelefone(),
+        contato.getLinkedin(),
+        contato.getId());
+        try(Statement stm = connection.createStatement()){
+            stm.execute(query);
+        }catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        
+        
     }
 
     @Override
     public void excluir(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'excluir'");
+        // TODO: excluir contato do banco de dados
+        StringBuilder builder = new StringBuilder();
+        builder.append("DELETE FROM contatos WHERE id = %d");
+        String query = String.format(builder.toString(), id);
+        try(Statement stm = connection.createStatement()){
+            stm.execute(query);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
-
+            
+        
+        
+    
+    
     @Override
     public List<ContatoVO> buscarTodos() {
         // TODO: Declarar lista de contatos:
@@ -79,8 +106,28 @@ public class ContatoMySqliDAO implements IContatoDAO {
 
     @Override
     public ContatoVO buscarPorEmail(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarPorEmail'");
-    }
+        ContatoVO cont = null;  // Inicialize a variável cont
+
+    // Usar PreparedStatement é mais seguro para evitar injeção de SQL
+        String query = "SELECT id, nome, email, telefone, linkedin FROM contatos WHERE email = ?";
     
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rst = ps.executeQuery();
+
+            if (rst.next()) {
+                cont = new ContatoVO(
+                    rst.getInt("id"),
+                    rst.getString("nome"),
+                    rst.getString("email"),
+                    rst.getString("telefone"),
+                    rst.getString("linkedin")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cont;
+    }
 }

@@ -23,13 +23,13 @@ public class ContatoMySqlRepository implements IContatoRepository{
     @Override
     public void atualizar(ContatoVO contato) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
+        dao.atualizar(contato);
     }
 
     @Override
     public void excluir(Integer id) {
         // TODO Auto-generated method stub
-        return dao.excluir(id);
+        dao.excluir(id);
     }
 
     @Override
